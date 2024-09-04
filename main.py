@@ -21,7 +21,8 @@ try:
         temp.insert(0, i[:i.find(' ')])
         temp.insert(1, i[i.find(' ') + 1:])
         temp.insert(2, list2.count(i))
-        df2.loc[len(df2.index)] = [i[0], i[1], i[2]]
+        df2.loc[len(df2.index)] = [temp[0], temp[1], temp[2]]
+    print(df2)
     df2.sort_values(ascending=False, by='количество баллов').to_excel('./result.xlsx')
 except Exception:
     print('Error: Failed to write to the Excel file.')
